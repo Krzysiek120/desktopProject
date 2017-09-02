@@ -1,0 +1,88 @@
+{% extends '@App/layout/base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row text-center">
+            <h1>Parameters of my computer</h1>
+        </div>
+        <div class="border">
+            <div class="row">
+                <div class="col-sm-4">
+                    <strong class="param">getHostname</strong><br /> <span id="getHostname"></span><br />
+                </div>
+                <div class="col-sm-4">
+                    <strong class="param">getCpuArchitecture</strong><br /> <span id="getCpuArchitecture"></span><br />
+                </div>
+                <div class="col-sm-4">
+                    <strong class="param">getKernelVersion</strong><br /> <span id="getKernelVersion"></span><br />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <strong class="param">getCpuModel</strong><br /> <span id="getCpuModel"></span><br />
+                </div>
+                <div class="col-sm-4">
+                    <strong class="param">getCpuVendor</strong><br /> <span id="getCpuVendor"></span><br />
+                </div>
+                <div class="col-sm-4">
+                    <strong class="param">getCpuFreq</strong><br /> <span id="getCpuFreq"></span><br />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <strong class="param">getLoad</strong><br /> <span id="getLoad"></span><br />
+                </div>
+                <div class="col-sm-4">
+                    <strong class="param">getOS</strong><br /> <span id="getOS"></span><br />
+                </div>
+                <div class="col-sm-4">
+                    <strong class="param">getMemoryUsage</strong><br /> <span id="getMemoryUsage"></span><br />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <strong class="param">getMemoryTotal</strong><br /> <span id="getMemoryTotal"></span><br />
+                </div>
+                <div class="col-sm-4">
+                    <strong class="param">getFreeMemory</strong><br /> <span id="getFreeMemory"></span><br />
+                </div>
+                <div class="col-sm-4">
+                    <strong class="param">getUptime</strong><br /> <span id="getUptime"></span><br />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function refreshData(){
+            $.ajax({
+                type: "GET",
+                url: "{{ path('ajax') }}",
+                dataType: "json",
+            }).done(function(data) {
+                $('#getHostname').text(data.getHostname);
+                $('#getCpuArchitecture').text(data.getCpuArchitecture);
+                $('#getKernelVersion').text(data.getKernelVersion);
+                $('#getCpuModel').text(data.getCpuModel);
+                $('#getCpuVendor').text(data.getCpuVendor);
+                $('#getCpuFreq').text(data.getCpuFreq);
+                $('#getLoad').text(data.getLoad);
+                $('#getUpTime').text(data.getUpTime);
+                $('#getOS').text(data.getOS);
+                $('#getMemoryUsage').text(data.getMemoryUsage);
+                $('#getMemoryTotal').text(data.getMemoryTotal);
+                $('#getFreeMemory').text(data.getFreeMemory);
+                $('#getUptime').text(data.getUptime);
+
+            });
+        }
+
+        $(function(){
+            refreshData();
+
+            setInterval(function(){
+                refreshData();
+            }, 1000);
+        });
+    </script>
+{% endblock %}
