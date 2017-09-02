@@ -8,46 +8,57 @@
         <div class="border">
             <div class="row">
                 <div class="col-sm-4">
-                    <strong class="param">getHostname</strong><br /> <span id="getHostname"></span><br />
+                    <strong class="param">getHostname</strong><br /> <span class="paramValue" id="getHostname"></span><br />
                 </div>
                 <div class="col-sm-4">
-                    <strong class="param">getCpuArchitecture</strong><br /> <span id="getCpuArchitecture"></span><br />
+                    <strong class="param">getCpuArchitecture</strong><br /> <span class="paramValue" id="getCpuArchitecture"></span><br />
                 </div>
                 <div class="col-sm-4">
-                    <strong class="param">getKernelVersion</strong><br /> <span id="getKernelVersion"></span><br />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <strong class="param">getCpuModel</strong><br /> <span id="getCpuModel"></span><br />
-                </div>
-                <div class="col-sm-4">
-                    <strong class="param">getCpuVendor</strong><br /> <span id="getCpuVendor"></span><br />
-                </div>
-                <div class="col-sm-4">
-                    <strong class="param">getCpuFreq</strong><br /> <span id="getCpuFreq"></span><br />
+                    <strong class="param">getKernelVersion</strong><br /> <span class="paramValue" id="getKernelVersion"></span><br />
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4">
-                    <strong class="param">getLoad</strong><br /> <span id="getLoad"></span><br />
+                    <strong class="param">getCpuModel</strong><br /> <span class="paramValue" id="getCpuModel"></span><br />
                 </div>
                 <div class="col-sm-4">
-                    <strong class="param">getOS</strong><br /> <span id="getOS"></span><br />
+                    <strong class="param">getCpuVendor</strong><br /> <span class="paramValue" id="getCpuVendor"></span><br />
                 </div>
                 <div class="col-sm-4">
-                    <strong class="param">getMemoryUsage</strong><br /> <span id="getMemoryUsage"></span><br />
+                    <strong class="param">getCpuFreq</strong><br /> <span class="paramValue" id="getCpuFreq"></span><br />
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4">
-                    <strong class="param">getMemoryTotal</strong><br /> <span id="getMemoryTotal"></span><br />
+                    <strong class="param">getLoad</strong><br /> <span class="paramValue" id="getLoad"></span><br />
                 </div>
                 <div class="col-sm-4">
-                    <strong class="param">getFreeMemory</strong><br /> <span id="getFreeMemory"></span><br />
+                    <strong class="param">getOS</strong><br /> <span class="paramValue" id="getOS"></span><br />
                 </div>
                 <div class="col-sm-4">
-                    <strong class="param">getUptime</strong><br /> <span id="getUptime"></span><br />
+                    <strong class="param">getMemoryUsage</strong><br /> <span class="paramValue" id="getMemoryUsage"></span><br />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <strong class="param">getMemoryTotal</strong><br /> <span class="paramValue" id="getMemoryTotal"></span><br />
+                </div>
+                <div class="col-sm-4">
+                    <strong class="param">getFreeMemory</strong><br /> <span class="paramValue" id="getFreeMemory"></span><br />
+                </div>
+                <div class="col-sm-4">
+                    <strong class="param">getUptime</strong><br /> <span class="paramValue" id="getUptime"></span><br />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <strong class="param">getFreeDiskSpace</strong><br /> <span class="paramValue" id="getFreeDiskSpace"></span><br />
+                </div>
+                <div class="col-sm-4">
+                    <strong class="param">getTotalDiskSpace</strong><br /> <span class="paramValue" id="getTotalDiskSpace"></span><br />
+                </div>
+                <div class="col-sm-4">
+                    <strong class="param">getIpAdress</strong><br /> <span class="paramValue" id="getIpAdress"></span><br />
                 </div>
             </div>
         </div>
@@ -67,12 +78,14 @@
                 $('#getCpuVendor').text(data.getCpuVendor);
                 $('#getCpuFreq').text(data.getCpuFreq);
                 $('#getLoad').text(data.getLoad);
-                $('#getUpTime').text(data.getUpTime);
                 $('#getOS').text(data.getOS);
                 $('#getMemoryUsage').text(data.getMemoryUsage);
                 $('#getMemoryTotal').text(data.getMemoryTotal);
                 $('#getFreeMemory').text(data.getFreeMemory);
                 $('#getUptime').text(data.getUptime);
+                $('#getFreeDiskSpace').text(data.getFreeDiskSpace);
+                $('#getTotalDiskSpace').text(data.getTotalDiskSpace);
+                $('#getIpAdress').text(data.getIpAdress);
 
             });
         }

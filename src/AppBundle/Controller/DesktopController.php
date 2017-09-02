@@ -27,6 +27,9 @@ class DesktopController extends Controller
         $system = SystemInfo::getInfo();
         $systemMemInfo = $this->getSystemMemInfo();
         $uptime = $this->getUptime();
+        $freeDiskSpace = $this->getFreeDiskSpace();
+        $totalDiskSpace = $this->getTotalDiskSpace();
+        $ipAdress = $this->getIpAdress();
 
         return new JsonResponse([
             'getHostname' => $system::getHostname(),
@@ -42,7 +45,9 @@ class DesktopController extends Controller
             'getMemoryTotal' => $systemMemInfo['MemTotal'],
             'getFreeMemory' => $systemMemInfo['MemFree'],
             'getUptime' => $uptime,
-
+            'getFreeDiskSpace' => $freeDiskSpace,
+            'getTotalDiskSpace' => $totalDiskSpace,
+            'getIpAdress' => $ipAdress,
         ]);
     }
 
@@ -74,14 +79,37 @@ class DesktopController extends Controller
 
         $uptime = explode(" ",$uptime);
         $uptime = $uptime[0];
-        $days = explode(".",(($uptime % 31556926) / 86400));
         $hours = explode(".",((($uptime % 31556926) % 86400) / 3600));
         $minutes = explode(".",(((($uptime % 31556926) % 86400) % 3600) / 60));
         $seconds = explode(".",((((($uptime % 31556926) % 86400) % 3600) / 60) / 60));
 
-        $time = $days[0].":".$hours[0].":".$minutes[0].":".$seconds[0];
+        $time = 'hours: '.$hours[0].' minutes: '.$minutes[0];
 
         return $time;
 
     }
+
+    private function getFreeDiskSpace() {
+
+        $freeDiskSpace = disk_free_space("/");
+
+        return round($freeDiskSpace/1024) . 'KB';
+
+    }
+
+    private function getTotalDiskSpace() {
+
+        $totalDiskSpace = disk_total_space("/");
+
+        return round($totalDiskSpace/1024) . 'KB';
+
+    }
+
+    private function getIpAdress()
+    {
+        $ipAdress = $_SERVER['REMOTE_ADDR'];
+
+        return $ipAdress;
+    }
+
 }
