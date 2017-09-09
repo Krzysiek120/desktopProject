@@ -2,11 +2,12 @@
 
 namespace AppBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use abhimanyu\systemInfo\SystemInfo;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use abhimanyu\systemInfo\SystemInfo;
+use AppBundle\Entity\Stat;
 
 class DesktopController extends Controller
 {
@@ -24,12 +25,20 @@ class DesktopController extends Controller
      */
     public function ajaxAction()
     {
+        $entityManager = $this->getDoctrine()->getManager();
+
         $system = SystemInfo::getInfo();
         $systemMemInfo = $this->getSystemMemInfo();
-        $uptime = $this->getUptime();
-        $freeDiskSpace = $this->getFreeDiskSpace();
-        $totalDiskSpace = $this->getTotalDiskSpace();
-        $ipAdress = $this->getIpAdress();
+
+        $stat = new Stat();
+        $stat->setCpuFreq($system::getCpuFreq())
+            ->setFreeDiskSpace($this->getFreeDiskSpace())
+            ->setFreeMemory($systemMemInfo['MemFree'])
+            ->setHostname($system::getHostname())
+            ->setUpTime($this->getUptime());
+
+        $entityManager->persist($stat);
+        $entityManager->flush();
 
         return new JsonResponse([
             'getHostname' => $system::getHostname(),
@@ -44,10 +53,10 @@ class DesktopController extends Controller
             'getMemoryUsage' => memory_get_usage(),
             'getMemoryTotal' => $systemMemInfo['MemTotal'],
             'getFreeMemory' => $systemMemInfo['MemFree'],
-            'getUptime' => $uptime,
-            'getFreeDiskSpace' => $freeDiskSpace,
-            'getTotalDiskSpace' => $totalDiskSpace,
-            'getIpAdress' => $ipAdress,
+            'getUptime' => $this->getUptime(),
+            'getFreeDiskSpace' => $this->getFreeDiskSpace(),
+            'getTotalDiskSpace' => $this->getTotalDiskSpace(),
+            'getIpAddress' => $this->getIpAddress(),
         ]);
     }
 
@@ -105,11 +114,9 @@ class DesktopController extends Controller
 
     }
 
-    private function getIpAdress()
+    private function getIpAddress()
     {
-        $ipAdress = $_SERVER['REMOTE_ADDR'];
-
-        return $ipAdress;
+        return $_SERVER['REMOTE_ADDR'];
     }
 
 }

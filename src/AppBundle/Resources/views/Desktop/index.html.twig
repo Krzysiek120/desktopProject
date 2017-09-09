@@ -58,7 +58,7 @@
                     <strong class="param">getTotalDiskSpace</strong><br /> <span class="paramValue" id="getTotalDiskSpace"></span><br />
                 </div>
                 <div class="col-sm-4">
-                    <strong class="param">getIpAdress</strong><br /> <span class="paramValue" id="getIpAdress"></span><br />
+                    <strong class="param">getIpAddress</strong><br /> <span class="paramValue" id="getIpAddress"></span><br />
                 </div>
             </div>
         </div>
@@ -85,8 +85,7 @@
                 $('#getUptime').text(data.getUptime);
                 $('#getFreeDiskSpace').text(data.getFreeDiskSpace);
                 $('#getTotalDiskSpace').text(data.getTotalDiskSpace);
-                $('#getIpAdress').text(data.getIpAdress);
-
+                $('#getIpAddress').text(data.getIpAddress);
             });
         }
 
@@ -95,7 +94,7 @@
 
             setInterval(function(){
                 refreshData();
-            }, 1000);
+            }, 10000);
         });
     </script>
 {% endblock %}
