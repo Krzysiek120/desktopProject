@@ -8,69 +8,100 @@
         <div class="border">
             <div class="row">
                 <div class="col-sm-4">
-                    <strong class="param">getHostname</strong><br /> <span class="paramValue" id="getHostname"></span><br />
+                    <strong class="param">Hostname</strong><br/> <span class="paramValue" id="getHostname"></span><br/>
                 </div>
                 <div class="col-sm-4">
-                    <strong class="param">getCpuArchitecture</strong><br /> <span class="paramValue" id="getCpuArchitecture"></span><br />
+                    <strong class="param">CpuArchitecture</strong><br/> <span class="paramValue"
+                                                                              id="getCpuArchitecture"></span><br/>
                 </div>
                 <div class="col-sm-4">
-                    <strong class="param">getKernelVersion</strong><br /> <span class="paramValue" id="getKernelVersion"></span><br />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <strong class="param">getCpuModel</strong><br /> <span class="paramValue" id="getCpuModel"></span><br />
-                </div>
-                <div class="col-sm-4">
-                    <strong class="param">getCpuVendor</strong><br /> <span class="paramValue" id="getCpuVendor"></span><br />
-                </div>
-                <div class="col-sm-4">
-                    <strong class="param">getCpuFreq</strong><br /> <span class="paramValue" id="getCpuFreq"></span><br />
+                    <strong class="param">KernelVersion</strong><br/> <span class="paramValue"
+                                                                            id="getKernelVersion"></span><br/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4">
-                    <strong class="param">getLoad</strong><br /> <span class="paramValue" id="getLoad"></span><br />
+                    <strong class="param">CpuModel</strong><br/> <span class="paramValue" id="getCpuModel"></span><br/>
                 </div>
                 <div class="col-sm-4">
-                    <strong class="param">getOS</strong><br /> <span class="paramValue" id="getOS"></span><br />
+                    <strong class="param">CpuVendor</strong><br/> <span class="paramValue"
+                                                                        id="getCpuVendor"></span><br/>
                 </div>
                 <div class="col-sm-4">
-                    <strong class="param">getMemoryUsage</strong><br /> <span class="paramValue" id="getMemoryUsage"></span><br />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <strong class="param">getMemoryTotal</strong><br /> <span class="paramValue" id="getMemoryTotal"></span><br />
-                </div>
-                <div class="col-sm-4">
-                    <strong class="param">getFreeMemory</strong><br /> <span class="paramValue" id="getFreeMemory"></span><br />
-                </div>
-                <div class="col-sm-4">
-                    <strong class="param">getUptime</strong><br /> <span class="paramValue" id="getUptime"></span><br />
+                    <strong class="param">CpuFreq </strong><br/> <span class="paramValue" id="getCpuFreq"></span><br/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4">
-                    <strong class="param">getFreeDiskSpace</strong><br /> <span class="paramValue" id="getFreeDiskSpace"></span><br />
+                    <strong class="param">Load</strong><br/> <span class="paramValue" id="getLoad"></span><br/>
                 </div>
                 <div class="col-sm-4">
-                    <strong class="param">getTotalDiskSpace</strong><br /> <span class="paramValue" id="getTotalDiskSpace"></span><br />
+                    <strong class="param">OS</strong><br/> <span class="paramValue" id="getOS"></span><br/>
                 </div>
                 <div class="col-sm-4">
-                    <strong class="param">getIpAddress</strong><br /> <span class="paramValue" id="getIpAddress"></span><br />
+                    <strong class="param">MemoryUsage</strong><br/> <span class="paramValue" id="getMemoryUsage"></span><br/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <strong class="param">MemoryTotal</strong><br/> <span class="paramValue" id="getMemoryTotal"></span><br/>
+                </div>
+                <div class="col-sm-4">
+                    <strong class="param">FreeMemory</strong><br/> <span class="paramValue"
+                                                                         id="getFreeMemory"></span><br/>
+                </div>
+                <div class="col-sm-4">
+                    <strong class="param">Uptime</strong><br/> <span class="paramValue" id="getUptime"></span><br/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <strong class="param">FreeDiskSpace</strong><br/> <span class="paramValue"
+                                                                            id="getFreeDiskSpace"></span><br/>
+                </div>
+                <div class="col-sm-4">
+                    <strong class="param">TotalDiskSpace</strong><br/> <span class="paramValue"
+                                                                             id="getTotalDiskSpace"></span><br/>
+                </div>
+                <div class="col-sm-4">
+                    <strong class="param">IpAddress</strong><br/> <span class="paramValue"
+                                                                        id="getIpAddress"></span><br/>
+                </div>
+            </div>
+        </div>
+        <div class="border">
+            <div class="row">
+                <div class="col-sm-6">
+                    <strong class="param">chart of CPU frequency</strong><br/> <span class="paramValue"
+                     id="chartOfCpuFrequency"></span><br/>
+                </div>
+                <div class="col-sm-6">
+                    <strong class="param">chart of free memory</strong><br/> <span class="paramValue"
+                       id="chartFreeMemory"></span><br/>
+                </div>
+            </div>
+        </div>
+        <div class="border">
+            <div class="row">
+                <div class="col-sm-6">
+                    <strong class="param">chart of load</strong><br/> <span class="paramValue"
+                       id="chartLoad"></span><br/>
+                </div>
+                <div class="col-sm-6">
+                    <strong class="param">chart of free disk space</strong><br/> <span class="paramValue"
+                        id="chartFreeDiskSpace"></span><br/>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        function refreshData(){
+        function refreshData() {
             $.ajax({
                 type: "GET",
-                url: "{{ path('ajax') }}",
+                url: "http://localhost:8080/ajax",
                 dataType: "json",
-            }).done(function(data) {
+            }).done(function (data) {
                 $('#getHostname').text(data.getHostname);
                 $('#getCpuArchitecture').text(data.getCpuArchitecture);
                 $('#getKernelVersion').text(data.getKernelVersion);
@@ -86,15 +117,146 @@
                 $('#getFreeDiskSpace').text(data.getFreeDiskSpace);
                 $('#getTotalDiskSpace').text(data.getTotalDiskSpace);
                 $('#getIpAddress').text(data.getIpAddress);
+
+                drawChart(data);
+                drawChart2(data);
+                drawChart3(data);
+                drawChart4(data);
+
             });
         }
 
-        $(function(){
+        $(function () {
             refreshData();
 
-            setInterval(function(){
+            setInterval(function () {
                 refreshData();
-            }, 10000);
+            }, 500);
         });
+
     </script>
+
+
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+
+        var freq = [
+                ['seconds', 'frequency'],
+            ],
+            time = 0;
+
+        function drawChart(data) {
+
+            freq.push([time, parseFloat(data.getCpuFreq)]);
+
+            time += 0.5;
+
+            var data = google.visualization.arrayToDataTable(freq);
+
+            var options = {
+                title: 'chart of CPU frequency',
+                curveType: 'function',
+                legend: {position: 'bottom'}
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('chartOfCpuFrequency'));
+
+            chart.draw(data, options);
+        }
+    </script>
+    <div id="chartOfCpuFrequency" style="width: 900px; height: 500px"></div>
+
+
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart2);
+
+        var mem = [
+                ['seconds', 'KB'],
+            ],
+            time = 0;
+
+        function drawChart2(data) {
+
+            mem.push([time, parseFloat(data.getFreeMemory)]);
+            time += 0.5;
+
+            var memData = google.visualization.arrayToDataTable(mem);
+
+            var memOptions = {
+                title: 'chart of Free memory',
+                curveType: 'function',
+                legend: {position: 'bottom'}
+            };
+
+            var chart2 = new google.visualization.LineChart(document.getElementById('chartFreeMemory'));
+
+            chart2.draw(memData, memOptions);
+        }
+    </script>
+    <div id="chartFreeMemory" style="width: 900px; height: 500px"></div>
+
+
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart3);
+
+        var freq3 = [
+                ['seconds', 'load'],
+            ],
+            time = 0;
+
+        function drawChart3(data) {
+
+            freq3.push([time, parseFloat(data.getLoad)]);
+            time += 0.5;
+
+            var data3 = google.visualization.arrayToDataTable(freq3);
+
+            var options3 = {
+                title: 'chart of Load',
+                curveType: 'function',
+                legend: {position: 'bottom'}
+            };
+
+            var chart3 = new google.visualization.LineChart(document.getElementById('chartLoad'));
+
+            chart3.draw(data3, options3);
+        }
+    </script>
+    <div id="chartLoad" style="width: 900px; height: 500px"></div>
+
+
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart4);
+
+        var freq4 = [
+                ['seconds', 'space'],
+            ],
+            time = 0;
+
+        function drawChart4(data) {
+
+            freq4.push([time, parseFloat(data.getFreeDiskSpace)]);
+            time += 0.5;
+
+            var data4 = google.visualization.arrayToDataTable(freq4);
+
+            var options4 = {
+                title: 'chart of free disk',
+                curveType: 'function',
+                legend: {position: 'bottom'}
+            };
+
+            var chart4 = new google.visualization.LineChart(document.getElementById('chartFreeDiskSpace'));
+
+            chart4.draw(data4, options4);
+        }
+    </script>
+    <div id="chartFreeDiskSpace" style="width: 900px; height: 500px"></div>
+
+
 {% endblock %}
